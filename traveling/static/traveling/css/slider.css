@@ -1,0 +1,228 @@
+.headding {
+  font-style: italic;
+  color: #FFF;
+  font-size: 80px;
+}
+/* Position the image container (needed to position the left and right arrows) */
+
+.kontainer {
+  position: relative;
+  margin: 1% 5% 1% 5%;
+}
+
+
+
+
+.carousel-3d {
+    padding: 20px;
+    -webkit-perspective: 500px;
+    perspective: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.carousel-3d > * {
+    flex: 0 0 auto;
+}
+.carousel-3d figure {
+    margin: 0;
+    width: 50%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: -webkit-transform 0.5s;
+    transition: transform 0.5s;
+    transition: transform 0.5s, -webkit-transform 0.5s;
+}
+.carousel-3d figure img,
+.carousel-3d figure div {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.carousel-3d figure img {
+    user-select: none;
+    border: 10px solid #FFF;
+}
+.carousel-3d figure div:not(:first-of-type),
+.carousel-3d figure img:not(:first-of-type) {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.carousel-3d nav {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0 0;
+}
+.carousel-3d nav button {
+    flex: 0 0 auto;
+    margin: 0 5px;
+    cursor: pointer;
+    color: #337AB7;
+    background: #BFE2FF;
+    border: 1px solid #337AB7;
+    padding: 5px 10px;
+    font-weight: bold;
+    transition: all .3s ease;
+}
+.carousel-3d nav button:hover {
+    color: #FFF;
+    background: #337AB7;
+}
+
+
+
+
+
+/* Add a transparency effect for thumnbail images */
+/* .demo {
+  opacity: 0.6;
+  border: 5px solid white;
+  padding: 10px;
+} */
+
+/* .active,
+.demo:hover {
+  opacity: 1;
+} */
+
+.stcard-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.stcard {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #FFEFD5;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    flex: 1 0 30%;
+    max-width: 30%;
+    align-self: center;
+}
+.stcard img {
+    width: 100%;
+    aspect-ratio: 12/9;
+    object-fit: cover;
+    border-radius: 6px;
+    filter: sepia(100%);
+    transition: filter 0.5s;
+    margin-bottom: 10px;
+}
+.stcard:hover img {
+    filter: sepia(0)
+}
+.stcard .stcard-title {
+    margin: 6px 10px 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 1.1;
+    color: #FFA500;
+    text-align: center;
+}
+.stcard p {
+    font-size: 15px;
+    text-align: center;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+
+
+
+
+
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 80px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal img {
+    aspect-ratio: 12/9;
+    /* width: 100%; /* Full width */
+    /* height: 100%; */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#kaption {
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 100px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #kaption {
+    animation-name: zoom;
+    animation-duration: 0.8s;
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}

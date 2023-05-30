@@ -1,0 +1,68 @@
+<!DOCTYPE html">
+
+{% load static %}
+{% load templatetags %}
+
+
+    <html lang="en" >
+        <head>
+            <meta charset="utf-8" />
+            <title>Мои цветы</title>
+            <link href="{% static 'traveling/css/sliderns.css' %}" rel="stylesheet" type="text/css" />
+        </head>
+        <body bgcolor="#000000">
+
+
+
+          <div class="outer" style="height:100px; width: 100%; ">
+            <span class="inner" style="border:1px solid Black">
+              Однажды у нас появился небольшой участок, крохотный дворик заросший крапивой...
+              <br>Расчистив землю, первое что мы сделали, это посадили цветы.
+              <br>И стех пор каждый год они нас радуют своим цветением, дарят живую красоту своих лепестков
+              <br>и напоминают о том, что жизнь ярка и прекрасна.
+
+            </span>
+          </div>
+
+            <div class="carousel-3d" data-gap="30">
+                <figure>
+                  {% for flora in floras %}
+                    <div><a href="#any"><img src="{{ flora.image.url }}" alt=""/></a></div>
+                  {% endfor %}
+                </figure>
+                <nav>
+                    <button class="nav prev">Назад</button>
+                    <button class="nav next">Вперед</button>
+                </nav>
+            </div>
+
+
+
+            <div id="myModal" class="modal">
+              <!-- The Close Button -->
+              <span class="close">&times;</span>
+              <!-- Modal Content (The Image) -->
+              <img class="modal-content" id="img01">
+              <!-- Modal Caption (Image Text) -->
+              <div id="kaption"></div>
+            </div>
+
+
+
+            <div class="kontainer">
+            <div class="stcard-container">
+
+              {% defcaunter 0 as caunter %}
+              {% for flora in floras %}
+                  <div class="stcard">
+                    <img id="img{{caunter}}" class="demo cursor" src="{{ flora.image.url }}" style="width:100%" onclick="currentSlide({{caunter}})" alt="">
+
+                  </div>
+                  {% defcaunter caunter as caunter %}
+              {% endfor %}
+
+            </div>
+          </div>
+        <script src="{% static 'traveling/js/sl.js' %}"></script>
+        </body>
+    </html>
